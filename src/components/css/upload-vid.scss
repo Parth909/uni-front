@@ -1,0 +1,551 @@
+@import "variables";
+
+// --video upload progress tracker
+[data-theme="light"] .track-vid-upload-progress {
+  margin: 0;
+  padding: 2vh 2vh 2vh 2vh;
+  height: clamp(80px, 13vmin, 13vmin);
+  border-radius: 5%;
+
+  li.vid-upload-step {
+    font-size: clamp(13px, 1.9vmin, 10vmin);
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-grey solid;
+    line-height: 3em;
+    width: 25%;
+
+    &:after {
+      // for the circle
+      content: "\00a0\00a0";
+      /*non-breaking space */
+    }
+
+    &:before {
+      // for the circle
+      position: relative;
+      bottom: -2.5em;
+      float: left;
+      left: 49%;
+      line-height: 1em;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    span.video-step-title {
+      padding-left: 0.75em;
+      overflow: hidden;
+      @media (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+
+  li.vid-step-done {
+    color: $progress-line-primary;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-primary solid;
+
+    &:before {
+      content: "";
+      background: $progress-line-primary;
+      height: 1.2em;
+      width: 1.2em;
+      line-height: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+    }
+  }
+  li.vid-step-incomplete {
+    color: $progress-line-danger;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-danger solid;
+
+    &:before {
+      content: "";
+      background: $progress-line-danger;
+      height: 1.2em;
+      width: 1.2em;
+      line-height: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+    }
+  }
+
+  li.vid-step-todo {
+    color: #7e7e7e;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    &:before {
+      content: "";
+      color: #7e7e7e;
+      font-weight: 600;
+      background: $bodyColor;
+      border: clamp(4px, 0.6vmin, 0.6vmin) solid $progress-line-grey;
+      height: 1.2em;
+      width: 1.2em;
+      border-radius: 0.8em;
+    }
+  }
+
+  b.vid-upload-stepno {
+    display: none;
+    font-size: clamp(13px, 1.9vmin, 10vmin);
+    font-weight: 500;
+    padding-left: 0.75em;
+
+    @media (max-width: 640px) {
+      display: inline;
+    }
+  }
+}
+// --video upload progress tracker end
+
+// --video upload dropzone
+.video-upload-head {
+  color: #424242;
+  font-size: clamp(20px, 5vmin, 5vmin);
+  text-align: center !important;
+  font-weight: 500;
+}
+
+.upload-video-content {
+  background-color: white;
+  border-radius: 5%;
+  min-height: 90vh;
+  height: auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-video-btn {
+  color: white;
+  outline: none;
+  background-color: #0098f0;
+  &:hover {
+    color: white;
+  }
+}
+
+.dropzone-container {
+  .rm-unsupported-vid {
+    text-align: center;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    color: $progress-line-danger;
+  }
+}
+
+.drop-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 50vh;
+  border-radius: 3%;
+  border: clamp(3px, 0.6vmin, 0.6vmin) dashed #0098f0;
+}
+
+.upload-icon {
+  width: clamp(65px, 14vh, 14vh);
+  height: clamp(65px, 14vh, 14vh);
+  background: url(../../img/upload_vid_pg_white.svg) no-repeat center center;
+  background-size: 100%;
+  text-align: center;
+  margin: 0 auto;
+  // padding-top: 30px;
+}
+
+.drop-message {
+  text-align: center;
+  color: #4aa1f3;
+  font-family: Arial;
+  font-size: clamp(20px, 3vmin, 3vmin);
+}
+
+// .file-progressBar {
+//   width: 100%;
+//   border-radius: 5px;
+//   overflow: hidden;
+//   display: inline-block;
+//   margin: 0px 10px 5px 5px;
+//   vertical-align: top;
+//   flex: 6 !important;
+//   margin-left: 50px;
+//   box-sizing: content-box;
+//   width: calc(100% - 50px);
+// }
+
+// .file-progressBar div {
+//   height: auto;
+//   color: #fff;
+//   text-align: right;
+//   line-height: 15px;
+//   width: 0;
+//   background-color: #4caf50;
+//   border-radius: 3px;
+//   font-size: 13px;
+// }
+
+// --uploaded file info
+
+.file-status-bar {
+  width: 100%;
+  margin-top: clamp(10px, 1.8vmin, 1.8vmin);
+  margin-bottom: clamp(20px, 3vmin, 3vmin);
+  position: relative;
+  word-break: normal;
+  // line-height: 50px;
+  height: auto;
+}
+
+// .file-status-bar > div {
+//   overflow: hidden;
+// }
+
+.file-type {
+  // display: inline-block !important;
+  // position: absolute;
+  font-size: clamp(13px, 1.9vmin, 1.9vmin);
+  font-weight: 700;
+  // line-height: 13px;
+  margin-right: clamp(5px, 1vmin, 1vmin);
+  padding: 0 clamp(5px, 1vmin, 1vmin);
+  border-radius: clamp(3px, 0.6vmin, 0.6vmin);
+  color: #fff;
+  background: #0290e2;
+  text-transform: uppercase;
+}
+
+.file-name {
+  display: inline-block;
+  // vertical-align: top;
+  font-size: clamp(16px, 2.3vmin, 2.3vmin);
+  color: #0098f0;
+}
+
+.file-error {
+  display: inline-block;
+  // vertical-align: top;
+  font-size: clamp(16px, 2.3vmin, 2.3vmin);
+  color: #7e7e7e;
+}
+
+.file-error-message {
+  color: red;
+}
+// .file-type-logo {
+//   width: 50px;
+//   height: 50px;
+//   background: url(../../img/upload_vid_pg_white.svg) no-repeat center center;
+//   background-size: 100%;
+//   position: absolute;
+// }
+
+.file-size {
+  display: inline-block;
+  color: #30693d;
+  margin-left: clamp(10px, 1.8vmin, 1.8vmin);
+  margin-right: clamp(5px, 1vmin, 1vmin);
+  margin-left: clamp(10px, 1.8vmin, 1.8vmin);
+  color: #444242;
+  font-weight: 700;
+  font-size: clamp(15px, 2.1vmin, 2.1vmin);
+}
+
+.file-remove {
+  position: absolute;
+  top: clamp(10px, 1.5vmin, 1.7vmin);
+  // top: 10px;
+  font-size: clamp(16px, 2.4vmin, 2.4vmin);
+  right: clamp(10px, 1.7vmin, 1.7vmin);
+  line-height: clamp(15px, 2.1vmin, 2.1vmin);
+  cursor: pointer;
+  font-weight: 700;
+  color: red;
+  margin-right: clamp(-11px, -1.7vmin, -1.7vmin);
+}
+
+// --uploaded file info end
+
+.tatti-modal {
+  z-index: 2000;
+  display: none;
+  overflow: hidden;
+}
+
+.tatti-modal .overlay {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.66);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tatti-modal .modal-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.modal-image-text {
+  position: absolute;
+  color: red;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.upload-modal {
+  z-index: 2000;
+  display: none;
+  overflow: hidden;
+}
+
+.upload-modal .overlay {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.66);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-container {
+  background: white;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.progress-container span {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  font-size: 20px;
+}
+
+.progress {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #efefef;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  position: absolute;
+  background-color: #4aa1f3;
+  height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}
+
+// --video upload dropzone end
+
+// floating-form-placeholder
+.upload-video-details {
+  .form-float-vid-upload {
+    margin-bottom: 4vmin;
+    .form-group-div {
+      position: relative;
+    }
+
+    .form-control-placeholder-div {
+      position: absolute;
+      top: 0;
+      font-size: clamp(16px, 2.5vmin, 2.5vmin);
+      font-weight: 500;
+      transition: all 200ms;
+      transform: translate3d(0, -100%, 0);
+      opacity: 0.6;
+    }
+
+    .form-control-div {
+      background-color: transparent;
+      padding: 0.375rem 0.75rem;
+      min-height: calc(3em + 1.5rem + 4px);
+      font-size: clamp(16px, 2.5vmin, 2.5vmin);
+      font-weight: 400;
+      border-radius: 0.25rem;
+    }
+    .form-control-div:focus + .form-control-placeholder-div,
+    .form-control-div:valid + .form-control-placeholder-div,
+    .form-control-div:not(:empty) + .form-control-placeholder-div {
+      font-size: clamp(16px, 2.5vmin, 2.5vmin);
+      transform: translate3d(0, -110%, 0);
+      opacity: 1;
+    }
+
+    .word-count {
+      font-size: 80%;
+    }
+  }
+
+  .upload-video-tags-t {
+    color: #fff;
+    padding: clamp(5px, 0.9vmin, 0.9vmin);
+    letter-spacing: 0.03em;
+    background-color: #0098f0;
+  }
+
+  .suggested-video-thumbnail-head {
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    font-weight: 500;
+  }
+
+  .btn-choose-custom-thumb {
+    padding: clamp(5px, 1vmin, 1vmin);
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    background-color: #dfdfdf;
+    color: $bodyTextColor;
+  }
+
+  .custom-vid-thumb-icon {
+    height: clamp(25px, 3vmin, 3vmin);
+    width: clamp(25px, 3vmin, 3vmin);
+  }
+  .suggested-vid-thumb-box {
+    padding: clamp(7px, 1.4vmin, 1.4vmin);
+    opacity: 0.6;
+    &.selected {
+      background-color: #d6d6d6;
+      opacity: 1;
+      border-radius: clamp(10px, 1.5vmin, 1.5vmin);
+    }
+    .suggested-up-video-thumbnail {
+      position: relative;
+    }
+
+    .suggested-up-video-thumbnail::after {
+      background-color: #141414;
+      border-radius: clamp(7px, 1vmin, 1vmin);
+
+      display: block;
+      content: "";
+      /* 16:9 aspect ratio */
+      padding-bottom: 56.25%;
+    }
+    .suggested-up-video-thumbnail img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
+// --floating-form-placeholder end
+
+// uploaded-video-state
+.upload-video-state {
+  .video-visibilty-head {
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    font-weight: 500;
+  }
+  .video-visibilty-state {
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    font-weight: 500;
+  }
+  .video-visibilty-state + span {
+    font-size: clamp(16px, 2.5vmin, 2.5vmin);
+  }
+}
+.customRadio input[type="radio"] {
+  height: clamp(16px, 2.5vmin, 2.5vmin);
+  width: clamp(16px, 2.5vmin, 2.5vmin);
+  margin: clamp(7px, 1.4vmin, 1.4vmin) clamp(7px, 1.4vmin, 1.4vmin);
+  // left: -9999px;
+  position: relative;
+  bottom: 0px;
+}
+.customRadio input[type="checkbox"] {
+  height: clamp(16px, 2.5vmin, 2.5vmin);
+  width: clamp(16px, 2.5vmin, 2.5vmin);
+  margin: clamp(7px, 1.4vmin, 1.4vmin) clamp(7px, 1.4vmin, 1.4vmin);
+  // left: -9999px;
+  position: relative;
+  bottom: 0px;
+}
+
+// .customRadio input[type="radio"] + label {
+//   position: relative;
+//   padding: 3px 0 0 40px;
+//   cursor: pointer;
+// }
+
+// .customRadio input[type="radio"] + label:before {
+//   content: "";
+//   background: #fff;
+//   border: clamp(3px, 0.5vmin, 5px) solid #0098f0;
+//   height: clamp(25px, 3vmin, 3vmin);
+//   width: clamp(25px, 3vmin, 3vmin);
+//   border-radius: 50%;
+//   position: absolute;
+//   // top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+// }
+
+// .customRadio input[type="radio"] + label:after {
+//   content: "";
+//   background: #0098f0;
+//   width: clamp(15px, 2.2vmin, 2.2vmin);
+//   height: clamp(15px, 2.2vmin, 2.2vmin);
+//   border-radius: 50%;
+//   position: absolute;
+//   left: clamp(5px, 0.5vmin, 0.5vmin);
+//   right: clamp(5px, 0.5vmin, 0.5vmin);
+//   bottom: clamp(5px, 0.5vmin, 0.5vmin);
+//   opacity: 0;
+//   transform: scale(1);
+//   transition: transform 0.3s linear, opacity 0.3s linear;
+// }
+// .customRadio input[type="radio"]:checked + label:after {
+//   opacity: 1;
+//   transform: scale(1);
+// }

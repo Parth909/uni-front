@@ -1,0 +1,77 @@
+.vjs-menu {
+  width: 70px !important;
+}
+
+// INITIAL SETUP
+// .vjs-button > .vjs-icon-placeholder::before {
+//   font-size: 2.2em !important;
+//   line-height: 1.67;
+// }
+
+// .vjs-remaining-time-display {
+//   font-size: 1.5em !important;
+// }
+
+// .vjs-placback-rate-value {
+//   font-size: 1.6em !important;
+// }
+// E - INITIAL SETUP
+
+// NORMAL SCREEN SETUP
+.vjs-control-bar {
+  height: 40px !important;
+
+  .vjs-button > .vjs-icon-placeholder::before {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    font-size: 2.2em !important;
+    line-height: 1.67;
+  }
+
+  .vjs-remaining-time {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em !important;
+    // margin-top: 11px !important;
+  }
+
+  .vjs-playback-rate-value {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 1.6em !important;
+    // margin-top: 11px !important;
+  }
+}
+// E - NORMAL SCREEN SETUP
+
+// FULL SCREEN SETUP
+.vjs-fullscreen .vjs-control-bar {
+  height: 70px !important;
+  margin-bottom: 0.5em !important;
+
+  .vjs-button > .vjs-icon-placeholder::before {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    font-size: 2.5em !important;
+    line-height: 1.67;
+  }
+
+  .vjs-remaining-time {
+    display: flex;
+    align-items: center;
+    // margin-top: 11px !important;
+  }
+
+  .vjs-playback-rate-value {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    font-size: 1.7em;
+    // margin-top: 11px !important;
+  }
+}
+// E - FULL SCREEN SETUP

@@ -1,0 +1,108 @@
+@import "dvariables";
+
+// --video upload progress tracker
+[data-theme="dark"] .track-vid-upload-progress {
+  margin: 0;
+  padding: 10px 10px 0 10px;
+  height: 80px;
+  border-radius: 5%;
+
+  li.vid-upload-step {
+    font-size: clamp(13px, 1.9vmin, 10vmin);
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-grey solid;
+    line-height: 3em;
+    width: 25%;
+
+    &:after {
+      // for the circle
+      content: "\00a0\00a0";
+      /*non-breaking space */
+    }
+
+    &:before {
+      // for the circle
+      position: relative;
+      bottom: -2.5em;
+      float: left;
+      left: 49%;
+      line-height: 1em;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    span.video-step-title {
+      padding-left: 0.75em;
+      overflow: hidden;
+      @media (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+
+  li.vid-step-done {
+    color: $progress-line-primary;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-primary solid;
+
+    &:before {
+      content: "";
+      background: $progress-line-primary;
+      height: 1.2em;
+      width: 1.2em;
+      line-height: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+    }
+  }
+  li.vid-step-incomplete {
+    color: $progress-line-danger;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    border-bottom: clamp(4px, 0.6vmin, 0.6vmin) $progress-line-danger solid;
+
+    &:before {
+      content: "";
+      background: $progress-line-danger;
+      height: 1.2em;
+      width: 1.2em;
+      line-height: 1.2em;
+      border: none;
+      border-radius: 1.2em;
+    }
+  }
+
+  li.vid-step-todo {
+    color: #c7c7c7;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    &:before {
+      content: "";
+      color: #c7c7c7;
+      font-weight: 600;
+      background: $bodyColor;
+      border: clamp(4px, 0.6vmin, 0.6vmin) solid $progress-line-grey;
+      height: 1.2em;
+      width: 1.2em;
+      border-radius: 0.8em;
+    }
+  }
+
+  b.vid-upload-stepno {
+    display: none;
+    font-weight: 500;
+    padding-left: 0.75em;
+
+    @media (max-width: 640px) {
+      display: inline;
+    }
+  }
+}
+
+// --video upload progress tracker end

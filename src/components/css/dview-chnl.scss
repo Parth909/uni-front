@@ -1,0 +1,257 @@
+@import "dvariables";
+
+// --chnl pg chnl imgs
+
+[data-theme="dark"] .vid-channel-cover-prof {
+  // Trick - Both are made relative & prof img's margin-top is made -ve
+  .vid-channel-cover-prof-wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .vid-ch-cover-img {
+    display: block;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    z-index: 20;
+  }
+  .vid-ch-cover-img img {
+    max-width: 100%;
+    z-index: 20;
+    border-radius: 5%;
+  }
+  .vid-ch-img {
+    display: block;
+    position: relative;
+    width: clamp(100px, 17vh, 17vh);
+    height: clamp(100px, 17vh, 17vh);
+    margin-top: clamp(-60px, -10vh, -10vh);
+    z-index: 30;
+  }
+  .vid-ch-img img {
+    max-width: 100%;
+    border-radius: 10%;
+    border: 5px solid $bodyColor;
+    z-index: 30;
+  }
+}
+
+// --chnl pg chnl imgs end
+
+// --chnl pg chnl info
+
+[data-theme="dark"] .vid-chnl-pg-chnl-info {
+  .vid-chnl-pg-chnl-name {
+    color: $v-vid-channel-name;
+    font-size: clamp(18px, 2.8vmin, 2.8vmin);
+    // padding-top: clamp();
+    margin-top: clamp(7px, 1.1vmin, 1.1vmin);
+    font-weight: 500;
+  }
+  .vid-chnl-pg-chnl-followers {
+    color: #0098f0;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+  }
+  .vid-chnl-pg-chnl-desc {
+    color: $v-vid-channel-desc;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+  }
+  .vid-chnl-pg-chnl-categories {
+    color: #0098f0;
+    // color: $v-vid-channel-desc;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+  }
+  .vid-chnl-pg-chnl-categories-link {
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+    a {
+      color: $v-vid-channel-desc;
+      text-decoration: underline;
+    }
+  }
+}
+
+// --chnl pg chnl info end
+
+// --chnl pg chnl playlists
+
+[data-theme="dark"] .chnl-pg-chnl-playlists {
+  .play-img-wrapper {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    .playlist-video-thumbnail {
+      /* Position child elements relative to this element */
+      position: relative;
+    }
+
+    /* pseudo element that uses padding-bottom to take up space */
+    .playlist-video-thumbnail::after {
+      background-color: #000000;
+      display: block;
+      content: "";
+      /* 16:9 aspect ratio */
+      padding-bottom: 56.25%;
+    }
+
+    /* Image is positioned absolutely relative to the parent element */
+    .playlist-video-thumbnail img {
+      display: block;
+      /* Image should match parent box size */
+      position: absolute;
+      // left: 0;
+      // top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .playlist-video-count {
+      display: block;
+      position: sticky;
+      background-color: #000000;
+      color: white;
+      font-weight: 500;
+      padding: clamp(5%, 6%, 7%) 0px;
+      margin-top: -18%;
+      // right: 0px;
+      // top: -50px;
+      opacity: 0.75;
+      font-size: clamp(18px, 2.8vmin, 2.8vmin);
+    }
+
+    @media (max-width: 768px) {
+      .playlist-video-count {
+        padding: clamp(5%, 6%, 7%) 0px;
+        margin-top: -15%;
+      }
+    }
+  }
+
+  .playlist-vid-cnt-icon {
+    height: clamp(18px, 2.8vmin, 2.8vmin);
+    width: clamp(18px, 2.8vmin, 2.8vmin);
+  }
+
+  .chnl-pg-v-playlist {
+    background-color: $v-vid-chnl-playlist-btn-back;
+    color: $v-vid-chnl-playlist-btn-color;
+    font-size: clamp(15px, 2.4vmin, 2.4vmin);
+    padding: clamp(3px, 0.4vmin, 0.4vmin) clamp(5px, 0.7vmin, 0.7vmin);
+    border-radius: 7%;
+    letter-spacing: 0.03em;
+  }
+}
+
+// --chnl pg chnl playlists end
+
+// --chnl pg featured chnl imgs
+
+[data-theme="dark"] .featured-channel-container {
+  .featured-channel-cover-prof {
+    // Trick - Both are made relative & prof img's margin-top is made -ve
+    .featured-channel-cover-prof-wrapper {
+      display: block;
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .featured-ch-cover-img {
+      display: block;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      z-index: 20;
+    }
+    .featured-ch-cover-img img {
+      max-width: 100%;
+      z-index: 20;
+      border-radius: 5%;
+    }
+    .featured-ch-img {
+      display: block;
+      position: relative;
+      width: clamp(70px, 13vh, 13vh);
+      height: clamp(70px, 13vh, 13vh);
+      margin-top: clamp(-40px, -6.5vh, -6.5vh);
+      z-index: 30;
+    }
+    .featured-ch-img img {
+      max-width: 100%;
+      border-radius: 10%;
+      border: 5px solid $bodyColor;
+      z-index: 30;
+    }
+  }
+  .feat-channel-name {
+    margin-top: clamp(10px, 2vmin, 2vmin);
+    font-size: clamp(18px, 2.8vmin, 2.8vmin);
+    font-weight: 500;
+  }
+
+  .feat-channel-followers {
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    color: #0098f0;
+    font-weight: 500;
+  }
+
+  .view-feat-chnl-btn {
+    background-color: #0098f0;
+    color: white;
+    margin-top: clamp(10px, 2vmin, 2vmin);
+    font-size: clamp(17px, 2.5vmin, 2.5vmin);
+    letter-spacing: 0.03em;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+// --chnl pg featured chnl imgs end
+
+//  --chnl pg about chnl
+
+[data-theme="dark"] .about-channel-container {
+  .vid-chnl-abt-down-arr {
+    height: clamp(20px, 3vmin, 3vmin);
+    width: clamp(20px, 3vmin, 3vmin);
+  }
+  .vid-chnl-abt-LHS-title {
+    font-size: clamp(20px, 3vmin, 3vmin);
+    background-color: $videoCardBodyColor;
+    font-weight: 500;
+    color: $v-vid-channels-cats;
+    border-radius: 10%;
+  }
+  .vid-chnl-pg-about-desc {
+    cursor: auto;
+    font-size: clamp(16px, 2.3vmin, 2.3vmin);
+    color: $bodyTextColor;
+    border-radius: 10%;
+  }
+  .vid-chnl-pg-about-links {
+    font-size: clamp(16px, 2.5vmin, 2.5vmin);
+    .chnl-abt-linkname {
+      color: $bodyTextColor;
+    }
+    .chnl-abt-links {
+      color: #0098f0;
+      font-weight: 500;
+    }
+  }
+}
+
+//  --chnl pg about chnl --end

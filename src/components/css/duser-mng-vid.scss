@@ -1,0 +1,135 @@
+@import "dvariables";
+
+// --view video channels top horizontal bar end
+
+[data-theme="dark"] .horizontal-menu {
+  background-color: $bodyColor;
+  overflow-x: scroll;
+  width: 100%;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .horizontal-menu-item {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  }
+  .border-right-grey {
+    border-right: 1px solid $light-grey-light-black-sh-2;
+  }
+
+  .v-vid-section-name {
+    color: $v-vid-section-name;
+    font-size: clamp(19px, 2.5vmin, 2.5vmin);
+    font-weight: 400;
+    padding: 0px clamp(9px, 1.2vmin, 1.2vmin);
+    letter-spacing: 0.03em;
+  }
+
+  .blue-highlight {
+    color: #0098f0 !important;
+    font-weight: 500;
+  }
+}
+
+// --view vid chnls top horizontal bar end
+
+// --view video channels main content
+
+[data-theme="dark"] .display-channels {
+  .v-channels-LHS-cats-head {
+    font-size: clamp(25px, 3.7vmin, 3.7vmin);
+    font-weight: 500;
+    color: $v-vid-channels-cats;
+    background-color: $videoCardBodyColor;
+    border-radius: 10%;
+
+    .cats-head {
+      margin: 0px clamp(9px, 1.2vmin, 1.2vmin);
+    }
+  }
+
+  .v-channels-RHS-content-head {
+    font-size: clamp(25px, 3.7vmin, 3.7vmin);
+    font-weight: 500;
+    color: $v-vid-channels-cats;
+  }
+
+  .v-vid-chnls-cats-ham {
+    height: clamp(22px, 3.3vmin, 3.3vmin);
+    width: clamp(22px, 3.3vmin, 3.3vmin);
+  }
+
+  .v-vid-channels-cat {
+    font-size: clamp(21px, 2.7vmin, 2.7vmin);
+    font-weight: 500;
+    color: $v-vid-channels-cats;
+
+    &.blue-cat-highlight {
+      font-size: clamp(22px, 2.9vmin, 2.9vmin);
+      color: #0098f0;
+      font-weight: 500;
+    }
+  }
+
+  // --16:9 chnl img
+  .v-vid-channel-img-box {
+    position: relative;
+  }
+
+  .v-vid-channel-img-box::after {
+    display: block;
+    content: "";
+    /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+  }
+
+  .v-vid-channel-img-box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 5%;
+  }
+  // --16:9 chnl img
+
+  .v-vid-channel-pic img.logo {
+    border-radius: 50%;
+    height: clamp(45px, 7.2vmin, 7.2vmin);
+    width: clamp(45px, 7.2vmin, 7.2vmin);
+  }
+
+  .v-vid-channel-name {
+    color: $v-vid-channel-name;
+    font-size: clamp(18px, 2.8vmin, 2.8vmin);
+    // padding-top: clamp();
+    margin-top: clamp(7px, 1.1vmin, 1.1vmin);
+    font-weight: 500;
+  }
+
+  .v-vid-channel-desc {
+    color: $v-vid-channel-desc;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+  }
+  .v-vid-channel-subs {
+    color: #0098f0;
+    font-size: clamp(17px, 2.7vmin, 2.7vmin);
+    // padding-top: clamp();
+    margin-top: clamp(5px, 0.8vmin, 0.8vmin);
+    font-weight: 500;
+  }
+}
+
+.text-ovfl-ellipsis {
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  white-space: nowrap; //https://www.w3schools.com/cssref/pr_text_white-space.asp
+}
+// --view video channels main content end

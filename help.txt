@@ -1,0 +1,194 @@
+    <div className="collapse navbar-collapse" id="navbarText">
+      <ul className="navbar-nav nav-pills">
+        <li className="nav-item">
+          <a className="nav-link active" href="#">
+            Active
+          </a>
+        </li>
+        <li className="nav-item ">
+          <a className="nav-link active" href="#">
+            Link
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Link
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+          >
+            Disabled
+          </a>
+        </li>
+        <li className="logo-name">
+          <a className="nav-link" href="#">
+            UL
+          </a>
+        </li>
+      </ul>
+      <span class="navbar-text">Navbar text with an inline element</span>
+    </div>
+
+
+
+
+
+
+
+        <nav className="navbar sticky-top navbar-expand-lg px-0 uni-dark">
+      <ul className="nav m-0 p-0">
+        <li className="nav-item ">
+          <a className="nav-link" href="#">
+            Home <span className="sr-only">(current)</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Features
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#">
+            Pricing
+          </a>
+        </li>
+      </ul>
+      <span className="navbar-text unifiq-logo">
+        unifiq
+        {/* <Unifiqlogo /> */}
+      </span>
+    </nav>
+
+
+    // Sidebar menu item
+    <div>
+      <span style={{ verticalAlign: "middle" }}>
+        <IconImg style={{ height: "30px !important", width: "30px" }} />
+      </span>
+      <span className="ml-2">{name}</span>
+    </div>
+
+    // Show password button inside input
+    <div class="form-group">
+                      <label for="password">
+                        Password
+                        <a href="forgot.html" class="float-right">
+                          Forgot Password?
+                        </a>
+                      </label>
+                      <div style={{ position: "relative" }} id="eye-password-0">
+                        <input
+                          id="password"
+                          type="password"
+                          class="form-control"
+                          name="password"
+                          required=""
+                          data-eye=""
+                          style={{ paddingRight: "60px" }}
+                        />
+                        <div class="invalid-feedback">Password is required</div>
+                        <input type="hidden" id="passeye-0" />
+                        <div
+                          class="btn btn-primary btn-sm"
+                          id="passeye-toggle-0"
+                          style={{
+                            position: "absolute",
+                            right: "10px",
+                            top: "7px",
+                            padding: "2px 7px",
+                            fontSize: "12px",
+                            cursor: "pointer",
+                          }}
+                        />
+                        Show
+                      </div>
+                      <div>
+                        <div class="invalid-feedback">Password is required</div>
+                      </div>
+                    </div>
+
+
+
+
+_____________ Player.js Backup ______________
+import React from "react";
+import HOBL from "../../layout/HOBL";
+import { useParams } from "react-router-dom";
+import videojs from "video.js";
+// import offset from "videojs-offset"; - works partially
+
+const Player = ({ playerOptns, videoData }) => {
+  const playerRef = React.useRef(null);
+  let player;
+  const memoizedPlayerOptions = React.useMemo(() => {
+    let pos = {
+      autoplay: true,
+      muted: true,
+      controls: true,
+      poster: videoData.thumb_url,
+      loop: false,
+      playbackRates: [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3],
+      height: "100",
+      userActions: {
+        hotkeys: true,
+      },
+      ...playerOptns,
+    };
+    return pos;
+  }, []);
+
+  // useEffect runs after the screen is updated
+  // useLayourEffect runs before the screen is updated, thf we won't get this warning
+  // ```VIDEOJS: WARN: Player "[object HTMLVideoElement]" is already initialised. Options will not be applied```
+  React.useLayoutEffect(() => {
+    // videojs.registerPlugin("offset", offset);
+
+    player = videojs(playerRef?.current, memoizedPlayerOptions, () => {
+      player.src(videoData.video_url);
+      console.log("Player is ready");
+    });
+    // if (player.watermark) player.watermark();
+
+    return () => {
+      if (player) {
+        player.dispose();
+      }
+    };
+  }, [memoizedPlayerOptions]);
+
+  return (
+    <>
+      {/* Safari & Chrome support Autoplay if the video is Muted */}
+      <video
+        ref={playerRef}
+        id="videoPlayer"
+        className="video-js vjs-big-play-centered"
+        controls
+      >
+        {/* <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" /> */}
+        <p className="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to
+          a web browser that
+          <a
+            href="https://videojs.com/html5-video-support/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            supports HTML5 video
+          </a>
+        </p>
+      </video>
+    </>
+  );
+};
+
+export default Player;
+
+// 9:16 video
+// https://assets.mixkit.co/videos/preview/mixkit-young-photographer-setting-up-his-camera-outdoors-34408-large.mp4
+// https://vod-progressive.akamaized.net/exp=1617709423~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3559%2F15%2F392798059%2F1665127265.mp4~hmac=93bb38ba2b4f31edd6b433e6ef980181ed78043c91be52c6f80b8205ddaf759e/vimeo-prod-skyfire-std-us/01/3559/15/392798059/1665127265.mp4?filename=production+ID%3A3779848.mp4

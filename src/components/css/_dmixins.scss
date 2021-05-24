@@ -1,0 +1,22 @@
+@import "dvariables";
+// mixins - Create a set of style and use it throughout by importing the mixin
+
+@mixin customBorder($color, $heightpx) {
+  background-color: $color !important;
+  border: "0px" !important;
+  height: $heightpx !important;
+}
+
+@mixin overflowDots {
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  white-space: nowrap; //https://www.w3schools.com/cssref/pr_text_white-space.asp
+}
+
+@mixin sidebarSticky {
+  // inside css function we need to tell it , that it is a variable
+  height: calc(100vh - #{$navHeight}) !important;
+  overflow-y: auto;
+  position: fixed !important;
+  top: $navHeight;
+}

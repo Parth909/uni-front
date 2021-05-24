@@ -1,0 +1,297 @@
+@import "dvariables";
+@import "dmixins";
+
+[data-theme="dark"] .App {
+  background-color: $bodyColor;
+}
+
+// Smooth
+[data-theme="dark"] .smoothGrey-smoothWhite-text-1 {
+  color: $smooth-grey-smooth-white-text-1;
+}
+
+// ----Navbar
+
+[data-theme="dark"] .navbar {
+  max-height: $navHeight !important;
+}
+[data-theme="dark"] .uni-dark {
+  background-color: $navbarColor !important;
+  // height: $navHeight !important;
+  display: flex;
+  align-content: center;
+  // &:not(.logo-name) {
+  //   justify-content: flex-end;
+  // }
+  .nav-item {
+    cursor: pointer;
+  }
+}
+
+[data-theme="dark"] .hamburger {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+// Navbar Media Queries
+// @media (max-width: 512px) {
+//   .nav {
+//     display: flex;
+//     justify-content: space-evenly;
+//   }
+// }
+
+// ----Sidebar
+
+// basic-sidebar-style
+@media (max-width: 700px) {
+  [data-theme="dark"] #wrapper {
+    overflow-x: hidden;
+  }
+}
+[data-theme="dark"] #sidebar-wrapper {
+  z-index: 1050;
+  background-color: $navbarColor !important;
+  // height: calc(100vh - $navHeight) !important;
+  margin-left: -15rem;
+  -webkit-transition: margin 0.25s ease-out;
+  -moz-transition: margin 0.25s ease-out;
+  -o-transition: margin 0.25s ease-out;
+  transition: margin 0.25s ease-out;
+}
+
+[data-theme="dark"] #sidebar-wrapper .list-group {
+  background-color: #1a1a1a !important;
+  width: 15rem;
+}
+
+[data-theme="dark"] #page-content-wrapper {
+  min-width: 100vw;
+}
+
+[data-theme="dark"] #wrapper.toggled #sidebar-wrapper {
+  margin-left: -15rem;
+  overflow-y: hidden; // to prevent the sidebar's scrollbar from showing up when sidebar is hidden
+}
+
+[data-theme="dark"] #wrapper #sidebar-wrapper {
+  margin-left: 0;
+  @include sidebarSticky;
+}
+
+@media (min-width: 768px) {
+  [data-theme="dark"] #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  [data-theme="dark"] #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  // sidebar not visible
+  [data-theme="dark"] #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+    overflow-y: hidden; // to prevent the sidebar's scrollbar from showing up when sidebar is hidden
+  }
+  // sidebar visible
+  [data-theme="dark"] #wrapper #sidebar-wrapper {
+    margin-left: 0;
+  }
+}
+// sidebar-options-items
+[data-theme="dark"] .unifiq-side-item {
+  cursor: pointer;
+  color: $navItemsFontColor;
+  background-color: $navbarColor !important;
+
+  &:hover {
+    background-color: $navItemsHoverColor !important;
+    color: $navItemsFontColor !important;
+  }
+  .sidebar-name {
+    font-size: 16px;
+    letter-spacing: 0em;
+  }
+}
+// along with side-options-item side-channel-item
+[data-theme="dark"] .overflow-dots {
+  @include overflowDots;
+}
+
+[data-theme="dark"] .side-grp-name {
+  cursor: text !important;
+  &:hover {
+    background-color: $navbarColor;
+  }
+}
+
+[data-theme="dark"] .align-middle {
+  align-content: center;
+}
+
+// ----Utils
+// profile-pic
+[data-theme="dark"] .image-cropper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+[data-theme="dark"] .profile-pic {
+  display: inline;
+  margin: 0 auto;
+  // margin-left: -25%; //centers the image
+  height: 100%;
+  width: auto;
+}
+
+// Notification icon
+[data-theme="dark"] .nav-icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+[data-theme="dark"] .nav-txt {
+  background-color: red;
+  font-size: 10px;
+  position: absolute;
+  padding: 0px 2px;
+  top: 2px;
+  right: 2px;
+  border-radius: 70%;
+}
+
+// scrollbar
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px #d3d3d3;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ababab;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #949292;
+}
+
+@media (max-width: 800px) {
+  // scrollbar
+  /* width */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px #d3d3d3;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ababab;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #949292;
+  }
+}
+
+[data-theme="dark"] .blue-links {
+  color: #0092fa !important;
+}
+
+[data-theme="dark"] .pointer {
+  cursor: pointer;
+}
+
+[data-theme="dark"] .body-text-color {
+  color: $bodyTextColor;
+}
+
+// User modal from nav
+
+[data-theme="dark"] #userModalBody {
+  .user-modal-name {
+    color: $bodyTextColor;
+  }
+  .user-modal-username {
+    color: $smooth-grey-smooth-white-text-1;
+  }
+  .user-modal-text-color {
+    color: $bodyTextColor;
+  }
+  .user-modal-optns {
+    background-color: $user-modal-optns-back;
+    color: $bodyTextColor;
+  }
+}
+
+[data-theme="dark"] .user-modal {
+  background-color: $bodyColor !important;
+}
+
+// Notify modal from nav
+
+[data-theme="dark"] #notifyModalBody {
+  .user-modal-name {
+    color: $bodyTextColor;
+  }
+  .user-modal-username {
+    color: $smooth-grey-smooth-white-text-1;
+  }
+  .user-modal-text-color {
+    color: $bodyTextColor;
+  }
+  .notify-modal-head {
+    background-color: #0098f0;
+    color: white;
+  }
+  .notify-modal-optns {
+    background-color: $notify-modal-optns-back;
+    color: $bodyTextColor;
+  }
+  .notify-m-video-uploader-info {
+    color: $bodyTextColor;
+  }
+}
+
+// form-placeholder-float
+
+.form-float {
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-control-placeholder {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.5;
+  }
+
+  .form-control:focus + .form-control-placeholder,
+  .form-control:valid + .form-control-placeholder {
+    font-size: 100%;
+    transform: translate3d(0, -110%, 0);
+    opacity: 1;
+  }
+}
