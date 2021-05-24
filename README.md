@@ -3,4 +3,6 @@
 
 This is the frontend for Vtube
 
+The backend for this is built using Django. The backend is a private repo
+
 Visit the demo on **Coming Soon**
