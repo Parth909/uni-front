@@ -281,3 +281,40 @@
     color: $bodyTextColor;
   }
 }
+
+// alerts
+/* alerts */
+.uni-blue {
+  background-color: #04a9f5 !important;
+  color: white;
+}
+
+.uni-danger {
+  background-color: #c20303 !important;
+  color: white;
+}
+
+#uni-blue {
+  background-color: #04a9f5 !important;
+  color: white;
+}
+
+#uni-danger {
+  background-color: #c20303 !important;
+  color: white;
+}
+.alert-contain {
+  display: inline-block; /*alert the size of the inline-text*/
+  max-width: 100vw;
+  @media (min-width: 500px) {
+    max-width: 80vw;
+  }
+}
+.fixed-top-20 {
+  position: -webkit-sticky;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+}

@@ -7,8 +7,6 @@ import videojs from "video.js";
 const Player = ({ videoData }) => {
   const playerRef = useCallback(
     (player) => {
-      console.log("videoData.video_url", videoData.video_url);
-
       if (player == null) return;
       player.innerHTML = "";
 

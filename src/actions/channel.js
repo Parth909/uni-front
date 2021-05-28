@@ -5,6 +5,10 @@ import {
   SET_CHANNEL_HOME_VIDEOS,
   SET_FEATURED_CHANNELS,
 } from "./types";
+import store from "../store";
+
+// actions
+import { setAlert } from "./alert";
 
 export const setVideoChannel = (channelid) => async (dispatch) => {
   try {
@@ -34,7 +38,10 @@ export const follUnfollChannel = (userid, channelid) => async (dispatch) => {
         payload: { userid, msg: res.data.success.split(" ") },
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    // console.error(Object.getOwnPropertyNames(error));
+    store.dispatch(setAlert(error.response.data.error, "uni-danger", 5000));
+  }
 };
 
 export const setChannelHomeVideos = (channelid) => async (dispatch) => {

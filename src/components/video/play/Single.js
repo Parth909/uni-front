@@ -195,7 +195,9 @@ const Single = ({
                     >
                       <div
                         className="d-inline pointer"
-                        onClick={() => setAlert("Copied to Clipboard")}
+                        onClick={() =>
+                          setAlert("Link copied to clipboard", "uni-blue", 5000)
+                        }
                       >
                         <div className="d-inline px-1">
                           <Share thm={thm} className="single-video-opt-icon" />

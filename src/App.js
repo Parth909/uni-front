@@ -89,7 +89,6 @@ function App() {
           <UserModal />
           <NotificationModal />
         </Router>
-        <Alert />
         {/* Don't lazy-load this modal as a function chks for a particular element in the modal */}
       </div>
     </Provider>

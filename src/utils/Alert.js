@@ -6,32 +6,39 @@ const Alert = ({ alert, removeAlert }) => {
   const closeBtnRef = React.useRef(null);
 
   React.useEffect(() => {
+    let time = null;
     if (alert.msg.length > 0) {
-      setTimeout(() => {
+      time = setTimeout(() => {
         closeBtnRef.current?.click(); // current can't be accessed when the modal is not visible so need to use *if condn*
-        removeAlert(); // alert.msg is changed
+        //removeAlert(); // alert.msg is changed
       }, alert.timeout);
     }
+    // If manually clicked Interval will be cleared, this also prevents Memory Leak
+    return () => {
+      if (time) {
+        clearInterval(time);
+      }
+    };
   }, [alert.msg]);
 
   return (
     alert.msg.length > 0 && (
-      <span className="mx-2" style={{ zIndex: "5000" }}>
+      <div className="mx-2 fixed-top-20 text-center" style={{ zIndex: "1030" }}>
         <div
-          className={`alert ${alert.alertType} alert-dismissible fade show alert-bottom`}
+          className={`alert alert-contain ${alert.alertType} fade show my-0`}
           role="alert"
-          style={{ color: "white" }}
         >
           {alert.msg}
           <button
             ref={closeBtnRef}
             type="button"
-            className="btn-close mx-1"
+            className="btn-close-uni-alert ml-4 float-right"
+            onClick={() => removeAlert()}
             data-bs-dismiss="alert"
             aria-label="Close"
           ></button>
         </div>
-      </span>
+      </div>
     )
   );
 };

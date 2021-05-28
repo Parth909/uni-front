@@ -8483,6 +8483,7 @@ button.bg-dark:focus {
     top: 0;
     z-index: 1020;
   }
+
   .sticky-left {
     position: -webkit-sticky;
     position: sticky;
@@ -10804,3 +10805,16 @@ a.text-dark:focus {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+/* customs */
+.btn-close-uni-alert {
+  box-sizing: content-box;
+  width: 1em;
+  height: 1em;
+  padding: 0.25em 0.25em;
+  color: #fff;
+  background: url("../icons/white-close.svg") center/1em auto no-repeat;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 1;
+}
