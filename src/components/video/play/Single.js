@@ -33,10 +33,10 @@ import {
   AddRmvVideoDislike,
 } from "../../../actions/likes";
 import { setVideoChannel } from "../../../actions/channel";
+import { setAlert } from "../../../actions/alert";
 
 // utils
 import humanize from "../../../utils/humanize";
-import { setAlert } from "../../../actions/alert";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Single = ({
@@ -240,7 +240,12 @@ const Single = ({
                         </Link>
                         <hr className="v-optns-hr p-0 m-0 d-block d-md-none" />
 
-                        <Link className="dropdown-item" to="/videos">
+                        <span
+                          className="dropdown-item pointer"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon", "uni-blue")
+                          }
+                        >
                           <div className="d-inline">
                             <Support
                               thm={thm}
@@ -250,9 +255,14 @@ const Single = ({
                           <div className="d-inline pl-3 single-video-more-opt-name">
                             Support
                           </div>
-                        </Link>
+                        </span>
                         <hr className="v-optns-hr p-0 m-0" />
-                        <Link className="dropdown-item" to="/videos">
+                        <span
+                          className="dropdown-item pointer"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon", "uni-blue")
+                          }
+                        >
                           <div className="d-inline">
                             <AddPlaylist
                               thm={thm}
@@ -262,9 +272,14 @@ const Single = ({
                           <div className="d-inline pl-3 single-video-more-opt-name">
                             Playlist
                           </div>
-                        </Link>
+                        </span>
                         <hr className="v-optns-hr p-0 m-0" />
-                        <Link className="dropdown-item" to="/videos">
+                        <span
+                          className="dropdown-item pointer"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon", "uni-blue")
+                          }
+                        >
                           <div className="d-inline">
                             <Report
                               thm={thm}
@@ -274,7 +289,7 @@ const Single = ({
                           <div className="d-inline pl-3 single-video-more-opt-name">
                             Report
                           </div>
-                        </Link>
+                        </span>
                       </div>
                     </div>
                   </div>

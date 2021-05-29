@@ -11,7 +11,10 @@ import signup from "../../img/sign-up.svg";
 import premium from "../../img/premium.svg";
 import loadingGif from "../../img/loading100.gif";
 
-const UserModal = ({ user, setUserTheme }) => {
+// actions
+import { setAlert } from "../../actions/alert";
+
+const UserModal = ({ user, setUserTheme, setAlert }) => {
   const [themeToSet, setThemeToSet] = React.useState(null);
   const [login, setLogin] = React.useState(null);
   const [loading, setLoading] = React.useState(null);
@@ -62,13 +65,15 @@ const UserModal = ({ user, setUserTheme }) => {
                   <div className="col-9 pt-1">
                     <h5 className="user-modal-name">Parth Bhoir</h5>
                     <h6 className="user-modal-username">parthbhoir#987a1fc</h6>
-                    <a
-                      href="https://google.com"
+                    <span
+                      onClick={() =>
+                        setAlert("User Management Coming Soon !", "uni-blue")
+                      }
                       className="blue-links pointer"
                       data-dismiss="modal"
                     >
                       <h6>Manage Your Account</h6>
-                    </a>
+                    </span>
                   </div>
                 </div>
                 <div className="row">
@@ -93,7 +98,13 @@ const UserModal = ({ user, setUserTheme }) => {
                     </div>
                   </div>
                   <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
-                    <Link to="/" onClick={() => closeModal()}>
+                    <Link
+                      to="/"
+                      onClick={() =>
+                        setAlert("Feature Coming Soon !", "uni-blue")
+                      }
+                      data-dismiss="modal"
+                    >
                       <div className="user-modal-optns p-2 rounded-lg pointer">
                         <span className="pr-2">
                           <img
@@ -114,6 +125,7 @@ const UserModal = ({ user, setUserTheme }) => {
                   <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
                     <Link
                       to={`/user/${user._id}/videos/view/yours`}
+                      // data-dismiss="modal" doesn't work
                       onClick={() => closeModal()}
                     >
                       <div className="user-modal-optns p-2 rounded-lg pointer">
@@ -135,7 +147,13 @@ const UserModal = ({ user, setUserTheme }) => {
                     </Link>
                   </div>
                   <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
-                    <Link to="/" onClick={() => closeModal()}>
+                    <Link
+                      to="/"
+                      onClick={() =>
+                        setAlert("Feature Coming Soon !", "uni-blue")
+                      }
+                      data-dismiss="modal"
+                    >
                       <div className="user-modal-optns p-2 rounded-lg pointer">
                         <span className="pr-2">
                           <img
@@ -157,7 +175,13 @@ const UserModal = ({ user, setUserTheme }) => {
                   {login === false ? (
                     <>
                       <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
-                        <Link to="/" onClick={() => closeModal()}>
+                        <Link
+                          to="/"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon !", "uni-blue")
+                          }
+                          data-dismiss="modal"
+                        >
                           <div className="user-modal-optns p-2 rounded-lg pointer">
                             <span className="pr-2">
                               <img
@@ -200,7 +224,13 @@ const UserModal = ({ user, setUserTheme }) => {
                   ) : (
                     <>
                       <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
-                        <Link to="/" onClick={() => closeModal()}>
+                        <Link
+                          to="/"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon !", "uni-blue")
+                          }
+                          data-dismiss="modal"
+                        >
                           <div className="user-modal-optns p-2 rounded-lg pointer">
                             <span className="pr-2">
                               <img
@@ -220,7 +250,13 @@ const UserModal = ({ user, setUserTheme }) => {
                         </Link>
                       </div>
                       <div className="col-12 col-md-6 text-center smoothGrey-smoothWhite-text-1 mt-3">
-                        <Link to="/" onClick={() => closeModal()}>
+                        <Link
+                          to="/"
+                          onClick={() =>
+                            setAlert("Feature Coming Soon !", "uni-blue")
+                          }
+                          data-dismiss="modal"
+                        >
                           <div className="user-modal-optns p-2 rounded-lg pointer">
                             <span className="pr-2">
                               <img
@@ -234,7 +270,7 @@ const UserModal = ({ user, setUserTheme }) => {
                               className="text-monospace"
                               style={{ fontWeight: "600" }}
                             >
-                              Cool...
+                              Starred
                             </span>
                           </div>
                         </Link>
@@ -333,4 +369,4 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-export default connect(mapStateToProps, { setUserTheme })(UserModal);
+export default connect(mapStateToProps, { setUserTheme, setAlert })(UserModal);
