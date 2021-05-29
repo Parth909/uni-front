@@ -49,4 +49,4 @@ There is also a dark mode for many of the pages
 
 ![Darkmode](Rimages/9.PNG)
 
-Visit the demo on **[http://streamvidzz.ml/videos](http://streamvidzz.ml/videos)**
+Visit the demo on **<a href="http://streamvidzz.ml/videos" target="_black">http://streamvidzz.ml/videos</a>**
